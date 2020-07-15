@@ -1,6 +1,7 @@
 #### This is a golang demo program to setup custom help usage in a generic way.  I store the CustomUsage function in a library that is used by most all of my golang programs. I like to have long and short options for all of my command line parameters.  The problem with the golang default usage is that it is sorted lexically which makes it much harder to read when you have a lot of parameters.  This CustomUsage func allows me to control the order of the flag display and group my long and short options together.
 
 #### This is a simple standalone example. The CustomUsage function controls the display.  The getParameters function contains the program flags setup and the UsageOrder array controls the display order.
+#### Note: This program doesn't do anything other than display help usage.
 
 ### #Build
 #### go build command-line-usage.go
