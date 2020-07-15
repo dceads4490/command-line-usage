@@ -2,10 +2,10 @@
 
 #### This is a simple standalone example. The CustomUsage function controls the display.  The getParameters function contains the program flags setup and the UsageOrder array controls the display order.
 
-### Build
+### #Build
 #### go build command-line-usage.go
 
-### Run
+### #Run
 #### command-line-usage -h
 Usage of command-line-usage:
 
