@@ -1,7 +1,8 @@
 package main
+
 /*********************************************************************
 **      IMPORTS
-*/
+ */
 import (
 	"flag"
 	"fmt"
@@ -36,7 +37,7 @@ func main() {
 	// Comment the following line to see before and after effect with -h
 	flag.Usage = CustomUsage
 	// Setup flags and parse command line parameters
-	getParameters()
+	setParameters()
 	flag.Parse()
 
 	// Print the variable values
@@ -68,19 +69,19 @@ func CustomUsage() {
 	 * to fail.  So, we will just print in lexical order
 	 * like default if UsageOrder is not provided.
 	 */
-	if(len(UsageOrder) == 0){
-	     fmt.Fprintf(os.Stderr, "Error: Attempting to use CustomUsage, but UsageOrder is not set\n")
-	     fmt.Fprintf(os.Stderr, "\t -This output might be really ugly\n")
-	     flag.VisitAll(func(f *flag.Flag) {
-		     // append f.Name to UsageOrder
-		     UsageOrder=append(UsageOrder,f.Name)
-             })
-        }
+	if len(UsageOrder) == 0 {
+		fmt.Fprintf(os.Stderr, "Error: Attempting to use CustomUsage, but UsageOrder is not set\n")
+		fmt.Fprintf(os.Stderr, "\t -This output might be really ugly\n")
+		flag.VisitAll(func(f *flag.Flag) {
+			// append f.Name to UsageOrder
+			UsageOrder = append(UsageOrder, f.Name)
+		})
+	}
 	/********************************************
-         * Create usage map to store usage for each parameter
-         * we will use this in combination with UsageOrder
-         * to order the output
-         */
+	 * Create usage map to store usage for each parameter
+	 * we will use this in combination with UsageOrder
+	 * to order the output
+	 */
 	usageMap := make(map[string]string, 0)
 
 	// Loop through all defined flags, set or unset
@@ -106,13 +107,13 @@ func CustomUsage() {
 
 /**PROC+**********************************************************************/
 /*                                                                           */
-/* Name:        get_parameters                                               */
+/* Name:        setParameters                                                */
 /* Purpose:     Set up flags for command line parse                          */
 /* Returns:     None                                                         */
 /* Params:      None                                                         */
 /*                                                                           */
 /**PROC-**********************************************************************/
-func getParameters() {
+func setParameters() {
 	// Set usage order for display
 	UsageOrder = []string{"debug", "D", "scan_sleep", "w", "start_safe", "S", "max_sort", "m", "base_dir", "d", "msg_queue", "q", "prog_name", "P", "file_suffix", "s", "file_prefix", "p"}
 
